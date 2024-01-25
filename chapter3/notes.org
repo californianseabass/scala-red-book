@@ -1,0 +1,15 @@
+#+TITLE: Chapter 3
++ The trait keyword introduces a data type. A trait is an abstract interface that may optionally contain implementations of some methods.
++ Putting a "+" in front of a type parameter is a variance annotation that signals that A is a covariant or "positive" paramter of List. Eg we can say List[Dog] is subtype of List[Animal]. For all types X and Y is X is subtype of Y, then List[X] is a subtype of List[Y].
++ Algebraic Data Type - defined by one of more constructors, each of which may contain zero of more arguments. The data type is the SUM or UNION of its data constuctors, and each data constructor is th PRODUCT of its arguments
++ one way to think about foldRight is that it replaces the contructors of the list (Nil and Cons)  with acc and f. It must push frames onto the call stack before it can being collapsing them. The name references this, that it's way of collapsing each element begins at the rightmost end of the list and works it's way back to the start
+  #+begin_src scala
+Cons(1, Cons(2, Nil))
+f(1, f(2, acc))
+  #+end_src
+* https://docs.scala-lang.org/scala3/book/types-variance.html
++ invariant - for functions that use a type argument as both a function argument and a return type.
++ covariants are marked by placing the "+", and mean it is atleast (you're defining a parent type). When using a covariant to define the type of a container such as List[+A], think of it as not mattering the you have additional information attached to the type if you pass in AA, which is AA <: A. Typically thought of as covariant
++ contravariants, are typically pretty rare, but you can think of them as consumers
+* trees
++

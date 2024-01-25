@@ -1,0 +1,7 @@
+#+TITLE: Handling Errors with exceptions
++ experimental: https://docs.scala-lang.org/scala3/reference/experimental/canthrow.html
++ exceptions break referential transparency, because they depend on the context of being nested within a try/catch block
++ higher order functions don't seem to mix well with exceptions, it's hard to know what exceptions f might be throwing. Scala 3 is experimenting with a canthrow to do a better job with exception checking.
++ using sentinel values is not ideal for error handling, because they can be easy to forget to check for, and sentinel values can make it hard to write polymorphic code (can't use -1 as a sentinel value for a string)
++ a solution to dealing with error handling is to pass in a specific error handler for known conditions, but this also highlights that maybe a better way is to pass a result saying that the condition appeared, and allow the caller to then manage the situation.
++ The option data type is an example of deferring to the caller for the error-handling strategy

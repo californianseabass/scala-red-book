@@ -1,0 +1,21 @@
+#+TITLE: Notes
+* Chapter 1
++ functional programming is a restriction on how we write programs, but not what programs we can express.
++
+    #+begin_src scala
+  class Cafe {
+    def buyCoffee(cc: CreditCard, p: Payments): Coffee = {
+      val cup = new Coffee()
+      p.charge(cc, cup.price)
+      cup
+    }
+  }
+    #+end_src
+    #+begin_src scala
+  def coalesce(chargers: List[Charge]): List[Charge] = {
+    charges.groupBy(_.cc).values.map(_.reduce(_ combine _)).toList
+  }
+    #+end_src
++ expression - any part of a program that can be evaluated to return a result
++ referential transparency - an expression e is referentially transparent if, for all programs p, all occurences of e in p can be replaced by the result of evaluating e without affecting the meaning of p. A function f is pure if the expression f(x) is referentially for all referentially transparent x. Referential transparency forces the invariant that everything a function does is represented by the value that it returns, according to the result type of the function.
++

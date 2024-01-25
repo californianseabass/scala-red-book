@@ -1,0 +1,24 @@
+#+TITLE: Chapter2
++ the term method refers to some function defined within an object or class using the def keyword
++ when writing loops functionally, use recurseive functions with the state of being what's passed as the arguments to the inner go/loop function
+  #+begin_src scala
+    def factorial (n: Int): Int = {
+      @annotation.tailrec
+      def go(n: Int, acc: Int): Int = {
+        if (n <= 0) acc
+        else go(n - 1, acc * n)
+      }
+
+      go(n, 1)
+    }
+  #+end_src
++ the annotation tailrec emits an error if the functions is tail recursive
+* Polymorphic functions
++ when writing a generic function, the type parameter is the generic variable used as a stand in for the type in the function signature. The type parameter list introduces type variables that can be referened in the rest of the type signature.
++ functions are objects with a special apply method. anonymous functions are syntatic sugar for creating these
+  #+begin_src scala
+(a, b) => a < b
+val lessThan = new Function2[Int, Int, Boolean] {
+  def apply(a: Int, b: Int) = a < b
+}
+  #+end_src
